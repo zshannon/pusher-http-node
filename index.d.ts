@@ -73,7 +73,7 @@ declare namespace Pusher {
     cluster: string
   }
   interface HostOptions extends BaseOptions {
-    host: string
+    host?: string
     port?: string
   }
 
