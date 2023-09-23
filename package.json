@@ -1,7 +1,7 @@
 {
   "name": "@s12g/pusher",
   "description": "Node.js client to interact with the Pusher Channels REST API",
-  "version": "5.1.3",
+  "version": "5.1.4",
   "author": "Pusher <support@pusher.com>",
   "contributors": [
     {
@@ -22,13 +22,13 @@
     }
   ],
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "abort-controller": "^3.0.0",
     "is-base64": "^1.1.0",
     "node-fetch": "^2.6.1",
     "secp256k1": "5.0.0",
     "tweetnacl": "^1.0.0",
-    "tweetnacl-util": "^0.15.0",
-    "@types/node-fetch": "^2.5.7"
+    "tweetnacl-util": "^0.15.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.6",
