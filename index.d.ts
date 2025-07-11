@@ -31,25 +31,25 @@ declare class Pusher {
     socketId: string,
     channel: string,
     data?: Pusher.PresenceChannelData
-  ): Pusher.ChannelAuthResponse
+  ): Promise<Pusher.ChannelAuthResponse>
 
   authorizeChannel(
     socketId: string,
     channel: string,
     data?: Pusher.PresenceChannelData
-  ): Pusher.ChannelAuthResponse
+  ): Promise<Pusher.ChannelAuthResponse>
 
   authenticateUser(
     socketId: string,
     userData: Pusher.UserChannelData
-  ): Pusher.UserAuthResponse
+  ): Promise<Pusher.UserAuthResponse>
 
   sendToUser(userId: string, event: string, data: any): Promise<Response>
 
   terminateUserConnections(userId: string): Promise<Response>
 
   webhook(request: Pusher.WebHookRequest): Pusher.WebHook
-  createSignedQueryString(opts: Pusher.SignedQueryStringOptions): string
+  createSignedQueryString(opts: Pusher.SignedQueryStringOptions): Promise<string>
 }
 
 declare namespace Pusher {
@@ -97,7 +97,7 @@ declare namespace Pusher {
     | "auth_timestamp"
     | "auth_version"
     | "auth_signature"
-    | "body_md5"
+    | "body_sha256"
 
   // I can't help but feel that this is a bit of a hack, but it seems to be the
   // best way of defining a type which allows any key except some known set.
@@ -182,7 +182,7 @@ declare namespace Pusher {
   export class WebHook {
     constructor(token: Token, request: WebHookRequest)
 
-    isValid(extraTokens?: Token | Array<Token>): boolean
+    isValid(extraTokens?: Token | Array<Token>): Promise<boolean>
     isContentTypeValid(): boolean
     isBodyValid(): boolean
     getData(): WebHookData
